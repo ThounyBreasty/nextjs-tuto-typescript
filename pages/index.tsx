@@ -1,7 +1,11 @@
 import Link from "next/link";
+import { Button } from "@chakra-ui/react";
+
+import { Extension } from "../providers";
+import { getSortedPostsData } from "../utils/posts";
+
 import Layout from "../components/layout";
 import Date from "../components/date";
-import { getSortedPostsData } from "../utils/posts";
 import { Post } from "../types/types";
 import utilStyles from "../styles/utils.module.scss";
 
@@ -15,6 +19,11 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }: { allPostsData: Array<Post> }) {
+  function handleExtensionClick() {
+    const extension = new Extension();
+    extension.login();
+  }
+
   return (
     <Layout home>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -33,6 +42,7 @@ export default function Home({ allPostsData }: { allPostsData: Array<Post> }) {
           ))}
         </ul>
       </section>
+      <Button onClick={handleExtensionClick}>Login with extension</Button>
     </Layout>
   );
 }

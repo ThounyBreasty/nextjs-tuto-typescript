@@ -19,7 +19,8 @@
     "noImplicitReturns": true,
     "strictNullChecks": true,
     "outDir": "dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": "src"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/posts.js"],
   "exclude": ["node_modules"]
